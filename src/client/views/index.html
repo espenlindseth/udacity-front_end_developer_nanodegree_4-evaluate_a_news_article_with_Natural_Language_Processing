@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
-        <link rel="stylesheet" href="/styles/base.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Evaluate Text or a News Article with Natural Language Processing</title>
+</head>
 
-    <body>
-
-        <header>
+<body>
+<!--         <header>
             <div class="">
                 Logo
             </div>
@@ -20,24 +15,73 @@
                 navigation
             </div>
         </header>
+    -->
+    <main>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
 
-        <main>
-            <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
-            <section>
 
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
-            </section>
+                        <h3>Aylien Natural Language Processing</h3>
+                        <p>This page lets you evaluate text using the Aylien Natural Language Processing API. Please enter either a URL to a news article, or a text string you want to evaluate in the text bar below and hit the Submit button.</p>
+                        <form class="" onsubmit="return Client.handleSubmit(event)">
+                            <div class="form-group">
+                                <input id="name" type="text" name="input" class="form-control form-control-lg text-center" aria-describedby="emailHelp" placeholder="Insert a URL or some Text here!">
+                            </div>
+                            <button type="submit" value="submit" class="btn btn-block btn-primary" onclick="return Client.handleSubmit(event)">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        <section>
+
+        <section id="result">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-bordered">
+                          <tbody>
+                            <tr>
+                              <td>Polarity</td>
+                              <td id="aylien-polarity"></td>
+                            </tr>
+                            <tr>
+                              <td>Polarity Confidence</td>
+                              <td id="aylien-polarity-confidence"></td>
+                            </tr>
+                            <tr>
+                              <td>Subjectivity</td>
+                              <td id="aylien-subjectivity"></td>
+                            </tr>
+                            <tr>
+                              <td>Subjectivity Confidence</td>
+                              <td id="aylien-subjectivity-confidence"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <p>This is the text that was submitted to the API:</p>
+                        <div id="aylien-submitted-text"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <div>This project was powered by hand crafted india pale ales and ridiculous amounts of coffee.</div>
         </footer>
 
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
     </body>
-</html>
+    </html>
