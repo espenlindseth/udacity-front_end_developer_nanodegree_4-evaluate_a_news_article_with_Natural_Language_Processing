@@ -4,7 +4,7 @@ function handleSubmit(event) {
     const inputText = document.getElementById('name').value
     if (Client.validUrl(inputText)) {
         const url = inputText
-        fetch("/api-url", {
+        fetch("http://localhost:8081/api-url", {
             method: "POST",
             mode: "cors",
             headers: {
